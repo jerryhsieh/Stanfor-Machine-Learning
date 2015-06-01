@@ -1,0 +1,354 @@
+dir
+dir()
+ls()
+clear()
+pwd()
+getwd()
+a[,4] <- as.numeric(a[,4])
+lapply(a[,4:23], as.numeric)
+str(a)
+a[4:27] <- lapply(a[4:27], as.numeric)
+str(a)
+a[order(X00)]
+a[order(X05)]
+a[order(a$X05)]
+?order
+head(a)
+air <- read.csv("103YH20150324.csv", stringsAsFactor=FALSE)#
+airPM <- subset(air, Test.Item == "PM2.5")#
+airPM$Date <- as.Date(airPM$Date)#
+airPM[4:27] <- lapply(airPM[4:27], as.numeric)
+head(airPM)
+airPM(order(X00))
+airPM[order(X00)]
+airPM[order(X00),]
+airPM[,order(X00)]
+airPM[,order(airPM$X00)]
+airPM[order(airPM$X00)]
+airPM[order(X00),]
+airPM[order(airPM$X00),]
+s.airPM <- airPM[order(airPM$X05),]
+head(s.airPM)
+s.airPM <- airPM[order(-airPM$X05),]
+head(s.airPM)
+plot(s.airPM)
+library(shiny)
+?Sys
+getwd()
+runApp()
+runApp("./shiny/testApp")
+q
+dir()
+dir("./shiny")
+runApp("./shiny/markupApp")
+runApp("./shiny/inpuApp")
+runApp("./shiny/inputApp")
+quit()
+library(shiny)
+getwd()
+dir()
+dir("/shiny")
+dir("./shiny")
+runApp("./shiny/simplestApp")
+runApp("./shiny/inputApp")
+q()
+getwd()
+dir("./shiny")
+runApp("./shiny/graphApp")
+library(shiny)
+runApp("./shiny/graphApp")
+library(UsingR)
+data(galton)
+hist(galton$child)
+lines(c(50,50), c(0,200))
+lines(c(50,50), c(0,200), color="red")
+lines(c(50,50), c(0,200), col="red")
+lines(c(50,50), c(0,200), col="red", lwd=5)
+lines(c(60,60), c(0,200), col="red", lwd=5)
+lines(c(70,70), c(0,200), col="red", lwd=5)
+dir()
+dir("./shiny2")
+runApp("./shiny2/testApp")
+runApp("./shiny2/testApp3")
+q()
+dir("./shiny2")
+runApp("./shiny2/testApp3", displayMode='showcase')
+library(shiny)
+runApp("./shiny2/testApp3", displayMode='showcase')
+runApp("./shiny2/testApp3", displayMode="showcase")
+setwd("./shiny2/testApp3")
+runApp(displayMode='showcase')
+setwd("../..")
+getwd()
+require(rCharts)
+require(devtools)
+install_github('rCharts', 'ramnathv')
+require(rCharts)
+haireye = as.data.frame(HairEyeColor)
+n1 <- nPlot(Freq ~ Hair, group = 'Eye', type='multiBarChar', data=subset(haireye, Sex='Male'))
+n1$save('fig/n1.html', cdn=TRUE)
+cat('<iframe src="fig/n1.html" width=100%, height=600></iframe>)')
+nPlot(Freq ~ Hair, group = 'Eye', type='multiBarChar', data=subset(haireye, Sex='Male'))
+head(haireye)
+nPlot(Freq ~ Hair, group = 'Eye', type='multiBarChar', data=subset(haireye, Sex=='Male'))
+plot(Freq, Hair)
+plot(haireye$Freq, haireye$Hair)
+nPlot(Freq ~ Hair, group = 'Eye', type='multiBarChar', data=subset(haireye, Sex=='Male'))
+names(iris) = gsub("\\.", "", names(iris))#
+rPlot(SepalLength ~ SepalWidth | Species, data = iris, color = 'Species', type = 'point')
+hair_eye = as.data.frame(HairEyeColor)#
+rPlot(Freq ~ Hair | Eye, color = 'Eye', data = hair_eye, type = 'bar')
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")#
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")#
+n1$print("chart3")
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+n1$print("chart3")
+n1
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+n1$save('fig/n1.html', cdn=TRUE)
+getwd()
+n1$save('fig/n1.html', cdn=TRUE)
+cat('<iframe src="fig/n1.html" width=100%, height=600></iframe>)')
+n1
+data(economics, package = "ggplot2")#
+econ <- transform(economics, date = as.character(date))#
+m1 <- mPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)#
+m1$set(pointSize = 0, lineWidth = 1)#
+m1$print("chart2")
+m1
+map3 <- Leaflet$new()#
+map3$setView(c(51.505, -0.09), zoom = 13)#
+map3$marker(c(51.5, -0.09), bindPopup = "<p> Hi. I am a popup </p>")#
+map3$marker(c(51.495, -0.083), bindPopup = "<p> Hi. I am another popup </p>")#
+map3
+library(googleVis)
+suppressPackageStartupMessages(library(googleVis))
+M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=600, height=400))
+print(M,"chart")
+M
+require(Fruits)
+use(Fruits)
+data(Fruits)
+M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=600, height=400))
+M
+print(M,'chart')
+plot(M)
+G <- gvisGeoChart(Exports, locationvar="Country", colorvar = "Profit", options=list(width=600,height=400))
+plot(G)
+data(Exports)
+G <- gvisGeoChart(Exports, locationvar="Country", colorvar = "Profit", options=list(width=600,height=400))
+plot(G)
+print(G, "chart")
+print(G, "chart", "gvisgeo.html")
+G2 <- gvisGeoChart(Exports, locationvar="Country", colorvar = "Profit", options=list(width=600,height=400, region="150"))
+plot(G2)
+Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),#
+                        options=list(#
+                          title="Hello World",#
+                          titleTextStyle="{color:'red', #
+                                           fontName:'Courier', #
+                                           fontSize:16}",                         #
+                          backgroundColor="#D3D3D3",                          #
+                          vAxis="{gridlines:{color:'red', count:3}}",#
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",#
+                          series="[{color:'green', targetAxisIndex: 0}, #
+                                   {color: 'orange',targetAxisIndex:1}]",#
+                          vAxes="[{title:'val1'}, {title:'val2'}]",#
+                          legend="bottom",#
+                          curveType="function",#
+                          width=500,#
+                          height=300                         #
+                        ))#
+plot(Line3)
+Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),#
+                        options=list(#
+                          title="Hello World",#
+                          titleTextStyle="{color:'red', #
+                                           fontName:'Courier', #
+                                           fontSize:16}",                         #
+                          backgroundColor="#D3D3D3",                          #
+                          vAxis="{gridlines:{color:'red', count:3}}",#
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",#
+                          series="[{color:'green', targetAxisIndex: 0}, #
+                                   {color: 'orange',targetAxisIndex:1}]",#
+                          vAxes="[{title:'val1'}, {title:'val2'}]",#
+                          legend="bottom",#
+                          curveType="function",#
+                          width=500,#
+                          height=300                         #
+                        ))
+df=data.frame(country=c("US", "GB", "BR"), #
+              val1=c(10,13,14), #
+              val2=c(23,12,32))
+Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),#
+                        options=list(#
+                          title="Hello World",#
+                          titleTextStyle="{color:'red', #
+                                           fontName:'Courier', #
+                                           fontSize:16}",                         #
+                          backgroundColor="#D3D3D3",                          #
+                          vAxis="{gridlines:{color:'red', count:3}}",#
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",#
+                          series="[{color:'green', targetAxisIndex: 0}, #
+                                   {color: 'orange',targetAxisIndex:1}]",#
+                          vAxes="[{title:'val1'}, {title:'val2'}]",#
+                          legend="bottom",#
+                          curveType="function",#
+                          width=500,#
+                          height=300                         #
+                        ))
+plot(Line3)
+G <- gvisGeoChart(Exports, "Country", "Profit", #
+                  options=list(width=300, height=300))#
+T <- gvisTable(Exports, #
+               options=list(width=220, height=300))#
+#
+GT <- gvisMerge(G,T, horizontal=TRUE) #
+plot(GT)
+install_github('rstudio/shinyapps')
+library(shinyapps)
+shinyapps::setAccountInfo(name='jerryhsieh', token='B7A24C20BB3ACED5EE1CAA918049AF96', secret='N/gqUthoc9rsqZtppEptKGxnkkv8C8PxJRBuFd9y')
+library(shinyapps)
+getwd()
+dir()
+dir("./shiny2")
+dir("./shiny")
+dir("./shiny/simplestApp")
+shinyapps::deployApp('./shiny/simplestApp')
+version()
+Sys
+Sys.version()
+env
+env()
+?Sys
+??Sys
+Sys.info
+Sys.info()
+Sys.glob()
+dir("./shiny")
+shinyapps::deployApp('./shiny/inputApp')
+install_github("ropensci/plotly")
+library(plotly)
+load("courseraData.rda")
+dTable(airquality , sPaginationType="full_numbers")
+dir()
+dir("./shiny")
+dir("./shiny/inputApp")
+runApp("./shiny/inputApp")
+dir("./shiny2")
+dir("./shiny2/testApp3")
+runApp("./shiny2/testApp3")
+runApp("./shiny/graphApp")
+terminateApp(simplestApp)
+terminateApp(inputApp)
+install.packages("png")
+install.packages("RHive")
+library(RHive)
+rhive.init()
+library(RHive)
+q()
+?line
+package.skeleton()
+dir()
+class(1)
+mean
+print
+method("mean")
+methods("mean")
+show
+q()
+library(aod)
+library(ggplot2)
+mydata <- read.csv("http://www.ats.ucla.edu/stat/data/binary.csv")
+head(mydata)
+str(mydata)
+mydata$rank = as.factor(mydata$rank)
+str(mydata)
+head(mydata)
+summary(mydata)
+mydata$admin = as.factory(mydata$admin)
+mydata$admin = as.factor(mydata$admin)
+summary(mydata)
+head(mydata)
+sapply(mydata, sd)
+xtabs(~admit + rank, data=mydata)
+mydata$rank <- factor(mydata$rank)
+str(mydata)
+summary(mydata)
+mylogit <- glm(admit ~ gre + gpa + rank, data=mydata, family = "binomial")
+summay(mylogit)
+summary(mylogit)
+confint(mylogit)
+wald.test(b=coef(mylogit), sigma = vcov(mylogit), Terms = 4:6)
+?vcov
+wald.test(b=coef(mylogit), Sigma = vcov(mylogit), Terms = 4:6)
+exp(coef(mylogit))
+exp(cbind(OR = coef(mylogit, confint(mylogit))))
+exp(cbind(OR = coef(mylogit), confint(mylogit)))
+newdata1 <- with(mydata, data.frame(gre=mean(gre), gpa=mean(gpa), rank=factor(1:4)))
+newdata1
+newdata$rankP <- predict(myligit, newdata=newdata1, type="response")
+newdata$rankP <- predict(mylogit, newdata=newdata1, type="response")
+newdata1$rankP <- predict(mylogit, newdata=newdata1, type="response")
+newdata1
+newdata2 <- with(mydata, data.frame(gre = rep(seq(from = 200, to = 800, length.out = 100),#
+    4), gpa = mean(gpa), rank = factor(rep(1:4, each = 100))))
+newdata2
+help lm
+?lm
+quit
+quit()
+train <- rbind(iris3[1:25,,1], iris3[1:25,,2], iris3[1:25,,3])#
+test <- rbind(iris3[26:50,,1], iris3[26:50,,2], iris3[26:50,,3])#
+cl <- factor(c(rep("s",25), rep("c",25), rep("v",25)))#
+knn(train, test, cl, k = 3, prob=TRUE)#
+attributes(.Last.value)
+library(knn)
+train <- rbind(iris3[1:25,,1], iris3[1:25,,2], iris3[1:25,,3])#
+test <- rbind(iris3[26:50,,1], iris3[26:50,,2], iris3[26:50,,3])#
+cl <- factor(c(rep("s",25), rep("c",25), rep("v",25)))#
+knn(train, test, cl, k = 3, prob=TRUE)#
+attributes(.Last.value)
+library(class)
+train <- rbind(iris3[1:25,,1], iris3[1:25,,2], iris3[1:25,,3])#
+test <- rbind(iris3[26:50,,1], iris3[26:50,,2], iris3[26:50,,3])#
+cl <- factor(c(rep("s",25), rep("c",25), rep("v",25)))#
+knn(train, test, cl, k = 3, prob=TRUE)#
+attributes(.Last.value)
+help knn
+?knn
+Class A cases#
+A1=c(0,0)#
+A2=c(1,1)#
+A3=c(2,2)#
+# Class B cases#
+B1=c(6,6)#
+B2=c(5.5,7)#
+B3=c(6.5,5)#
+# Build the classification matrix#
+train=rbind(A1,A2,A3, B1,B2,B3)#
+# Class labels vector (attached to each class instance)#
+cl=factor(c(rep("A",3),rep("B",3)))#
+# The object to be classified#
+test=c(4, 4)#
+# Load the class package that holds the knn() function#
+library(class)#
+# call knn() and get its summary#
+summary(knn(train, test, cl, k = 1))#
+# End of listing#
+- See more at: http://blog.webagesolutions.com/archives/1164#sthash.cRHSiMgg.dpuf
+plot(train)
+test = c(3.5,3.5)
+summary(knn(train, test, cl, k=1))
+plot(train)
+d <- summary(knn(train, test, cl, k=1))
+plot(d)
+d
+?knn
+quit()
+setwd("~/Personal/Learning/Data Science/Standford Machine Learning/machine-learning-ex8")
+dir()
+setwd("ex8")
+run ex8
+source("ex8")

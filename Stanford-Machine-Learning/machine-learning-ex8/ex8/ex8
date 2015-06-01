@@ -1,0 +1,86 @@
+#
+# 
+#
+message(sprintf("Visualizing example dataset for outlier detection.\n\n"))
+library(R.matlab)
+
+data <- readMat("ex8data1.mat")
+
+X <- data$X
+Xval <- data$Xval
+yval <- data$yval
+
+plot(X[,1], X[,2])
+
+message(sprintf("program pause\n"))
+
+readline(prompt="press enter to continue \n")
+
+#
+# estimate Gaussian
+#
+mu <- matrix(colMeans(X), 1)
+sig <- matrix(apply(X, 2, var), 1)
+
+source("multivariateGaussian")
+
+p <- multivariateGaussian(X, mu, sig)
+
+source("visualizeFit")
+visualizeFit(X, mu, sig)
+
+#
+# find outliner
+#
+pval <- multivariateGaussian(Xval, mu, sig)
+
+source("selectThreshhold.R")
+best <- selectThreshhold(yval, pval)
+
+F1 <- best[1]
+epsilon <- best[2]
+
+message(sprintf('Best epsilon found using cross-validation: %e\n', epsilon))
+message(sprintf('Best F1 on Cross Validation Set:  %f\n', F1))
+message(sprintf('   (you should see a value epsilon of about 8.99e-05)\n\n'))
+
+
+outliner <- which(p < epsilon)
+
+plot(X[,1], X[,2])
+points(X[outliner, ], pch=1, col = "red", cex=2.5)
+
+readline(prompt="Program pause, press enter to continue")
+
+
+data <- readMat("ex8data2.mat")
+X <- data$X
+Xval <- data$Xval
+yval <- data$yval
+
+
+#  Apply the same steps to the larger dataset
+#[mu sigma2] = estimateGaussian(X);
+mu <- matrix(colMeans(X), 1)
+sigma2 <- matrix(apply(X, 2, var), 1)
+
+
+#  Training set 
+p = multivariateGaussian(X, mu, sigma2);
+
+#  Cross-validation set
+pval = multivariateGaussian(Xval, mu, sigma2);
+
+#  Find the best threshold
+best = selectThreshhold(yval, pval);
+
+F1 <- best[1]
+epsilon <- best[2]
+
+message(sprintf('Best epsilon found using cross-validation: %e\n', epsilon))
+message(sprintf('Best F1 on Cross Validation Set:  %f\n', F1))
+message(sprintf('# Outliers found: %d\n', sum(p < epsilon)))
+message(sprintf('   (you should see a value epsilon of about 1.38e-18)\n\n'))
+
+
+

@@ -1,0 +1,346 @@
+}
+computCost(X, y, theta)
+computCost(X, df$y, theta)
+res <- lm(df$y ~ df$x)
+summary(res)
+abline(res, col="blue")
+cost <- function(X, y, theta) {#
+  sum( (X %*% theta - y)^2 ) / (2*length(y))#
+}
+cost(X, df$y, theta)
+# learning rate and iteration limit#
+alpha <- 0.01#
+num_iters <- 1000#
+#
+# keep history#
+cost_history <- double(num_iters)#
+theta_history <- list(num_iters)#
+#
+# initialize coefficients#
+theta <- matrix(c(0,0), nrow=2)#
+#
+# add a column of 1's for the intercept coefficient#
+X <- cbind(1, matrix(x))#
+#
+# gradient descent#
+for (i in 1:num_iters) {#
+  error <- (X %*% theta - y)#
+  delta <- t(X) %*% error / length(y)#
+  theta <- theta - alpha * delta#
+  cost_history[i] <- cost(X, y, theta)#
+  theta_history[[i]] <- theta#
+}#
+#
+print(theta)
+y <- df$y
+# learning rate and iteration limit#
+alpha <- 0.01#
+num_iters <- 1000#
+#
+# keep history#
+cost_history <- double(num_iters)#
+theta_history <- list(num_iters)#
+#
+# initialize coefficients#
+theta <- matrix(c(0,0), nrow=2)#
+#
+# add a column of 1's for the intercept coefficient#
+X <- cbind(1, matrix(x))#
+#
+# gradient descent#
+for (i in 1:num_iters) {#
+  error <- (X %*% theta - y)#
+  delta <- t(X) %*% error / length(y)#
+  theta <- theta - alpha * delta#
+  cost_history[i] <- cost(X, y, theta)#
+  theta_history[[i]] <- theta#
+}#
+#
+print(theta)
+x <- df$x
+# learning rate and iteration limit#
+alpha <- 0.01#
+num_iters <- 1000#
+#
+# keep history#
+cost_history <- double(num_iters)#
+theta_history <- list(num_iters)#
+#
+# initialize coefficients#
+theta <- matrix(c(0,0), nrow=2)#
+#
+# add a column of 1's for the intercept coefficient#
+X <- cbind(1, matrix(x))#
+#
+# gradient descent#
+for (i in 1:num_iters) {#
+  error <- (X %*% theta - y)#
+  delta <- t(X) %*% error / length(y)#
+  theta <- theta - alpha * delta#
+  cost_history[i] <- cost(X, y, theta)#
+  theta_history[[i]] <- theta#
+}#
+#
+print(theta)
+?ncol
+source("ex1.R")
+X
+X <- df$x
+X
+y
+theta
+theta = matrix(0,2,1)
+theta
+alpha <- 0.01
+num_iter <- 50
+grad(X, y, theta, alpha, num_iter)
+n <- ncol(X)
+n
+is.matrix(X)
+X <- matrix(X)
+X
+grad(X, y, theta, alpha, num_iter)
+dim(X)
+dim(theta)
+X <- matrix(X, byrow=TRUE)
+X
+dim(X)
+cbind(rep(1,nrow(X)), X)
+dim(X)
+source("ex1.R")
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+X
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+theta
+dim(theta)
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+source("ex1.R")
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+grad(X, y, theta, alpha, num_iter)
+source("ex1.R")
+grad(X, y, theta, alpha, num_iter)
+t <- grad(X, y, theta, alpha, num_iter)
+t
+coef(res)
+abline(t, col="yellow")
+source("ex1.R")
+t <- grad(X, y, theta, alpha, num_iter)
+t
+t[1]
+t[2]
+t(j, t1) <- grad(X, y, theta, alpha, num_iter)
+list(j, t1) <- grad(X, y, theta, alpha, num_iter)
+t <- grad(X, y, theta, alpha, num_iter)
+j_hist <- t[1]
+t1 <- t[2]
+j_hist
+plot(j_hist)
+source("ex1.R")
+t <- grad(X, y, theta, alpha, num_iter)
+c_hist <- t[3]
+plot(c_hist)
+c_hist
+c_his <- cbind(1:length(c_hist), c_hist)
+c_his
+c_his
+length(c_hist)
+dim(c_hist)
+class(c_hist)
+c_hist
+c_hist$rownumber
+c_hist$rownumber <- 1:length(c_hist)
+c_hist
+c_hist$rownumber <- 1:nrow(c_hist)
+c_hist
+c_hist$rownumber <- NA
+c_hist
+c_hist$rownumber <- NULL
+c_hist
+plot(1:50, c_hist)
+x <- c(1:50)
+plot(x, c_hist)
+length(x)
+length(c_hist)
+x
+class(x)
+class(c_hist)
+plot(x, unlist(c_hist))
+plot(x, unlist(c_hist), type="l")
+plot(unlist(c_hist), type="l")
+plot(unlist(c_hist), type="l")
+t <- grad(X, y, theta, alpha, 1000)
+c_hist <- t[3]
+th1 <- t[1]
+th1 <- t[2]
+th1
+summary(res)
+plot(unlist(c_hist), type="l")
+num_iter
+th1
+t_hist <- t[2]
+plot(t_hist)
+head(t_hist)
+t_hist
+t_hist <- t[1]
+dim(t_hist)
+t_hist
+head(t_hist)
+t[1][1]
+dim(t_hist)
+length(t_hist)
+class(t_hist)
+unlit(t_hist)
+unlist(t_hist)
+th1
+abline(th1)
+plot(x,y)
+x
+y
+X
+x <- X
+plot(x, y)
+abine(th1)
+abline(th1, col="blue")
+th1
+abline(res, col="red")
+res
+abline(th1)
+abline(unlit(th1))
+abline(unlist(th1))
+abline(unlist(th1), col="blue")
+th1
+dim(th1)
+theta_final = matrix(th1)
+theta_final
+theta_final = as.matrix(th1)
+theta_final
+theta_final = unlist(th1)
+theta_final
+length(theta_final)
+dim(theta_final)
+theta_final = matrix(theta_final, 1, 2)
+theta_final
+theta_final = matrix(theta_final, 2, 1)
+theta_final
+p1 <- c(1, 3.5)
+p1
+theta_final %*% p1
+p1 %*% theta_final
+p1 %*% theta_final * 10000
+df <- read.table("ex1data1.txt", sep=",")
+df
+x <- df$1
+x <- df$V1
+y <- df$V2
+theta <- matrix(0, nrow(x), 1)
+class(x)
+x <- matrix(x)
+x
+theta <- matrix(0, nrow(x), 1)
+theta
+y
+plot(x, y)
+theta <- matrix(0, ncol(x), 1)
+theta
+theta <- matrix(0, ncol(x)+1, 1)
+theta
+t <- grad(x, y, theta, 0.01, 100)
+t[2]
+x
+th1 <- t[2]
+th1
+abline(th1)
+abline(unlist(th1), col="blue")
+t <- grad(x, y, theta, 0.01, 1000)
+th1 <- t[2]
+abline(unlist(th1), col="red")
+th1
+t1 <- matrix(th1)
+t1
+t1 <- matrix(unlist(th1))
+t1
+p1 <- c(1, 3.5)
+p1 %*% t1
+p1 %*% t1 * 10000
+res <- lm(y ~ x)
+p1 %*% res * 10000
+p1 %*% coef(res) * 10000
+coef(res)
+abline(coef(res), col="yellowq")
+abline(coef(res), col="yellow")
+cost(x,y)
+cost(x,y, theta)
+x
+theta
+dim(theta)
+dim(x)
+X <- cbind(rep(1,nrow(x)), x)
+X
+cost(X, y, theta)
+theta
+cost(X, y, coef(res))
+cost(X, y, t1)
+t <- grad(x, y, theta, 0.01, 10000)
+t1 <- t[2]
+t1
+cost(X, y, t1)
+X
+cost(X, y, t1)
+t1
+t1 <- matrix(unlist(t1))
+t1
+cost(X, y, t1)
+cost(X, y, coef(res))
+abline(t1)
+t1
+coef(res)
+library(matlab)
+help(matlab)
+ls()
+c_hist
+ls()
+rm(list=ls())
+ls9)
+ls()
+library(neuralnet)
+#And store them as a dataframe#
+traininginput <-  as.data.frame(runif(50, min=0, max=100))#
+trainingoutput <- sqrt(traininginput)#
+#Column bind the data into one variable#
+trainingdata <- cbind(traininginput,trainingoutput)#
+colnames(trainingdata) <- c("Input","Output")#
+#Train the neural network#
+#Going to have 10 hidden layers#
+#Threshold is a numeric value specifying the threshold for the partial#
+#derivatives of the error function as stopping criteria.#
+net.sqrt <- neuralnet(Output~Input,trainingdata, hidden=10, threshold=0.01)#
+print(net.sqrt)#
+#Plot the neural network#
+plot(net.sqrt)#
+#Test the neural network on some training data#
+testdata <- as.data.frame((1:10)^2) #Generate some squared numbers#
+net.results <- compute(net.sqrt, testdata) #Run them through the neural network#
+#Lets see what properties net.sqrt has#
+ls(net.results)#
+#Lets see the results#
+print(net.results$net.result)#
+#Lets display a better version of the results#
+cleanoutput <- cbind(testdata,sqrt(testdata),#
+                         as.data.frame(net.results$net.result))#
+colnames(cleanoutput) <- c("Input","Expected Output","Neural Net Output")#
+print(cleanoutput)
+j <- function (x) {2*j^4 + 2}
+j(1)
+j <- function (x) {2*(j^4) + 2}
+j(1)
+j <- function (x) {2*(x^4) + 2}
+j(1)
+j(1+0.01) - j(1-0.01)
+(j(1+0.01) - j(1-0.01)) / (2 * 0.01)
+quit()

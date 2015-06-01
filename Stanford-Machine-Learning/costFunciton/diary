@@ -1,0 +1,66 @@
+jerry@JerryMacBookPro> PS1()
+ans = \u@\H> 
+jerry@JerryMacBookPro> val = PS1()
+val = \u@\H> 
+jerry@JerryMacBookPro> PS1(\u)
+parse error:
+
+  syntax error
+
+>>> PS1(\u)
+        ^
+
+jerry@JerryMacBookPro> PS1(\u@)
+parse error:
+
+  syntax error
+
+>>> PS1(\u@)
+        ^
+
+jerry@JerryMacBookPro> PS1("\\u@>")
+jerry@>help PS1
+'PS1' is a built-in function from the file libinterp/corefcn/input.cc
+
+ -- Built-in Function: VAL = PS1 ()
+ -- Built-in Function: OLD_VAL = PS1 (NEW_VAL)
+ -- Built-in Function: PS1 (NEW_VAL, "local")
+     Query or set the primary prompt string.  When executing
+     interactively, Octave displays the primary prompt when it is ready
+     to read a command.
+
+     The default value of the primary prompt string is "octave:\#> ".
+     To change it, use a command like
+
+          PS1 ("\\u@\\H> ")
+
+     which will result in the prompt 'boris@kremvax> ' for the user
+     'boris' logged in on the host 'kremvax.kgb.su'.  Note that two
+     backslashes are required to enter a backslash into a double-quoted
+     character string.  *Note Strings::.
+
+     You can also use ANSI escape sequences if your terminal supports
+     them.  This can be useful for coloring the prompt.  For example,
+
+          PS1 ("\\[\\033[01;31m\\]\\s:\\#> \\[\\033[0m\\]")
+
+     will give the default Octave prompt a red coloring.
+
+     When called from inside a function with the "local" option, the
+     variable is changed locally for the function and any subroutines it
+     calls.  The original variable value is restored when exiting the
+     function.
+
+     See also: PS2, PS4.
+
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+jerry@>
+jerry@>echo
+jerry@>
