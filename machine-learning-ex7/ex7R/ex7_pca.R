@@ -267,10 +267,11 @@ sel = floor(runif(1000) * nrow(X)) + 1
 #  Setup Color Palette
 #palette = hsv(K);
 #colors = palette(idx(sel), :);
-            
+
 #  Visualize the data and centroid memberships in 3D
 #figure;
-scatterplot3d(X[sel, 1], X[sel, 2], X[sel, 3], 10, colors)
+library(scatterplot3d)
+scatterplot3d(X[sel, 1], X[sel, 2], X[sel, 3], pch=16, color=rainbow(length(unique(idx[sel])))[idx[sel]])
 title('Pixel dataset plotted in 3D. Color shows centroid memberships');
 message(sprintf('Program paused. Press enter to continue.\n'))
 
@@ -294,15 +295,15 @@ sigma <- normX[[3]]
             
 # PCA and project the data to 2D
 
-USV <- pca(X_norm);
+USV <- pca(X_norm)
 
 S <- diag(USV$d)
 U <- USV$u
 
-Z = projectData(X_norm, U, 2);
+Z = projectData(X_norm, U, 2)
             
 # Plot in 2D
 #figure;
 plotDataPoints(Z[sel, ], idx[sel], K)
-title('Pixel dataset plotted in 2D, using PCA for dimensionality reduction');
+title('Pixel dataset plotted in 2D, using PCA for dimensionality reduction')
 readline(prompt='Program paused. Press enter to continue.\n')

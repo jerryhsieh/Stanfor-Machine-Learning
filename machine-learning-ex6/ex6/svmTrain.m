@@ -53,6 +53,7 @@ H = 0;
 if strcmp(func2str(kernelFunction), 'linearKernel')
     % Vectorized computation for the Linear Kernel
     % This is equivalent to computing the kernel on every pair of examples
+    
     K = X*X';
 elseif strfind(func2str(kernelFunction), 'gaussianKernel')
     % Vectorized RBF Kernel
@@ -60,6 +61,7 @@ elseif strfind(func2str(kernelFunction), 'gaussianKernel')
     X2 = sum(X.^2, 2);
     K = bsxfun(@plus, X2, bsxfun(@plus, X2', - 2 * (X * X')));
     K = kernelFunction(1, 0) .^ K;
+    fprintf("%0.2f ", K(1,:);
 else
     % Pre-compute the Kernel Matrix
     % The following can be slow due to the lack of vectorization
@@ -79,7 +81,7 @@ while passes < max_passes,
             
     num_changed_alphas = 0;
     for i = 1:m,
-        
+                
         % Calculate Ei = f(x(i)) - y(i) using (2). 
         % E(i) = b + sum (X(i, :) * (repmat(alphas.*Y,1,n).*X)') - Y(i);
         E(i) = b + sum (alphas.*Y.*K(:,i)) - Y(i);
@@ -116,6 +118,8 @@ while passes < max_passes,
 
             % Compute eta by (14).
             eta = 2 * K(i,j) - K(i,i) - K(j,j);
+            
+            
             if (eta >= 0),
                 % continue to next i. 
                 continue;
@@ -177,6 +181,7 @@ while passes < max_passes,
     if exist('OCTAVE_VERSION')
         fflush(stdout);
     end
+    
 end
 fprintf(' Done! \n\n');
 
@@ -188,5 +193,6 @@ model.kernelFunction = kernelFunction;
 model.b= b;
 model.alphas= alphas(idx);
 model.w = ((alphas.*Y)'*X)';
+
 
 end
