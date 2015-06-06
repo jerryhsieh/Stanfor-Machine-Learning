@@ -15,6 +15,6 @@ X_norm = sweep(X_norm, 2, sigma, "/")
 
 # ============================================================
 
-normX <- list(X_norm, mu, sigma)
+normX <- list(X_norm=X_norm, mu=mu, sigma=sigma)
 
 }    

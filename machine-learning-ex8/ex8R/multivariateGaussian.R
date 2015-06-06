@@ -1,0 +1,16 @@
+#
+#
+#
+library(mvtnorm)
+
+multivariateGaussian <- function(X, mu, sigma2){
+
+	k <- length(mu)
+	if (nrow(sigma2) == 1 | ncol(sigma2) == 1)
+		sigma2 = diag(as.vector(sigma2))
+
+	X <- sweep(X, 2, mu, "-")
+
+	A <- (X %*% solve(sigma2)) * X
+	p <- (2 * pi) ^ (- k /2) * det(sigma2) ^ (-0.5) * exp(-0.5 * rowSums(A))
+}

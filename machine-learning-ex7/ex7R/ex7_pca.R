@@ -55,9 +55,9 @@ message(sprintf('\nRunning PCA on example dataset.\n\n'))
 source("featureNormalize.R")
 normX= featureNormalize(X)
 
-X_norm <- normX[[1]]
-mu <- normX[[2]]
-sigma<- normX[[3]]
+X_norm <- normX$X_norm
+mu <- normX$mu
+sigma<- normX$sigma
 
 #  Run PCA
 source("pca.R")
@@ -161,9 +161,9 @@ message(sprintf('(this mght take a minute or two ...)\n\n'))
  
 normX <- featureNormalize(X)
 
-X_norm <- normX[[1]]
-mu <- normX[[2]]
-sigma <- normX[[3]]
+X_norm <- normX$X_norm
+mu <- normX$mu
+sigma <- normX$sigma
 
 #  Run PCA
 
@@ -256,8 +256,8 @@ initial_centroids = kMeansInitCentroids(X, K)
 
 CandI= runkMeans(X, initial_centroids, max_iters)
      
-centroids <- CandI[[1]]
-idx <- CandI[[2]]
+centroids <- CandI$centroids
+idx <- CandI$idx
 
 #  Sample 1000 random indexes (since working with all the data is
 #  too expensive. If you have a fast computer, you may increase this.
@@ -288,9 +288,9 @@ source("plotDataPoints.R")
 
 normX= featureNormalize(X)
 
-X_norm = normX[[1]]
-mu <- normX[[2]]
-sigma <- normX[[3]]
+X_norm = normX$X_norm
+mu <- normX$mu
+sigma <- normX$sigma
 
             
 # PCA and project the data to 2D

@@ -60,6 +60,7 @@ fprintf('Visualizing Gaussian fit.\n\n');
 %  of X
 p = multivariateGaussian(X, mu, sigma2);
 
+
 %  Visualize the fit
 visualizeFit(X,  mu, sigma2);
 xlabel('Latency (ms)');
@@ -80,7 +81,6 @@ fprintf('Best epsilon found using cross-validation: %e\n', epsilon);
 fprintf('Best F1 on Cross Validation Set:  %f\n', F1);
 fprintf('   (you should see a value epsilon of about 8.99e-05)\n\n');
 
-keyboard
 
 %  Find the outliers in the training set and plot the
 outliers = find(p < epsilon);

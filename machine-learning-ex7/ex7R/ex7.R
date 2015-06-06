@@ -112,8 +112,8 @@ initial_centroids = matrix(c(3, 3, 6, 2, 8, 5), 3, byrow=TRUE)
 source("runKMeans.R")
 CandI <- runkMeans(X, initial_centroids, max_iters, TRUE);
 
-centroids <- CandI[[1]]
-idx <- CandI[[2]]
+centroids <- CandI$centroids
+idx <- CandI$idx
 
 message(sprintf('\nK-Means Done.\n\n'))
                     
@@ -167,8 +167,8 @@ initial_centroids = kMeansInitCentroids(X, K)
 
 CandI <- runkMeans(X, initial_centroids, max_iters)
 
-centroids <- CandI[[1]]
-idx <- CandI[[2]]
+centroids <- CandI$centroids
+idx <- CandI$idx
 
 readline(prompt='Program paused. Press enter to continue.\n')
                     

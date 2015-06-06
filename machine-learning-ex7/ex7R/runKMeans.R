@@ -61,7 +61,7 @@ for (i in 1:max_iters) {
 }
 
 
-CandI = list(centroids, idx)
+CandI = list(centroids=centroids, idx=idx)
 
 
 # Hold off if we are plotting progress
