@@ -7,10 +7,10 @@ gaussianKernel <- function (x1, x2, sigma=0.1) {
 x1 = as.vector(x1) 
 x2 = as.vector(x2)
 
-message("inside gaussianKernel")
-print(x1)
-print(x2)
-print(sigma)
+#message("inside gaussianKernel")
+#print(x1)
+#print(x2)
+#print(sigma)
 
 # You need to return the following variables correctly.
 sim = 0

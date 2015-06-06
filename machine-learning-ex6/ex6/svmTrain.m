@@ -61,7 +61,6 @@ elseif strfind(func2str(kernelFunction), 'gaussianKernel')
     X2 = sum(X.^2, 2);
     K = bsxfun(@plus, X2, bsxfun(@plus, X2', - 2 * (X * X')));
     K = kernelFunction(1, 0) .^ K;
-    fprintf("%0.2f ", K(1,:);
 else
     % Pre-compute the Kernel Matrix
     % The following can be slow due to the lack of vectorization

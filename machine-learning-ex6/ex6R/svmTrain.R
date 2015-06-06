@@ -1,4 +1,4 @@
-svmTrain <- function (X, Y, C, kernelFunction, tol, max_passes) {
+svmTrain <- function (X, Y, C, kernelFunction, tol, max_passes, sigma=0.1) {
 #SVMTRAIN Trains an SVM classifier using a simplified version of the SMO 
 #algorithm. 
 #   [model] = SVMTRAIN(X, Y, C, kernelFunction, tol, max_passes) trains an
@@ -19,6 +19,7 @@ svmTrain <- function (X, Y, C, kernelFunction, tol, max_passes) {
 #
 #
 source("linearKernel.R")    
+source("gaussianKernel.R")
 
 if (missing(tol)) {
     tol = 1e-3
@@ -54,7 +55,7 @@ H = 0
 
     kfun <- deparse(substitute(kernelFunction))
 
-    print(kfun)
+#    print(kfun)
     if (strcmp(kfun, "linearKernel")) {
 # Vectorized computation for the Linear Kernel
 # This is equivalent to computing the kernel on every pair of examples
@@ -64,10 +65,11 @@ H = 0
     else if (length(grep('gaussianKernel', kfun)) > 0)  {
 # Vectorized RBF Kernel
 # This is equivalent to computing the kernel on every pair of examples
-        X2 = colSums(X^2)
-        K = sweep(sweep(- 2 * (X %*% t(X)), 2, t(X2), FUN="+", check.margin=FALSE),2, X2, FUN="+",check.margin=FALSE)  
-        K = kernelFunction(1, 0)^ K
-        print(K)
+        X2 <- matrix(rowSums(X^2), nrow(X), 1)
+        K <- sweep(sweep(- 2 * (X %*% t(X)), 2, t(X2), FUN="+", check.margin=FALSE), 1, X2, FUN="+",check.margin=FALSE)
+        kf <- match.fun(kernelFunction)
+        g <- kf(1,0, sigma)
+        K = g^ K
     }
     else {
 # Pre-compute the Kernel Matrix
@@ -176,11 +178,11 @@ H = 0
         }
     
 
-        message(sprintf('.'))
+        cat(".")
         dots = dots + 1
         if (dots > 78) {
             dots = 0
-            message(sprintf('\n'))
+            cat("\n")
         }
 
 #if exist('OCTAVE_VERSION')
@@ -193,14 +195,7 @@ message(sprintf(' Done! \n\n'))
 # Save the model
 idx = alphas > 0
 
-
-#model$X= X[idx,]
-#model$y= Y[idx]
-#model$kernelFunction = kernelFunction
-#model$b= b
-#model$alphas= alphas[idx]
-#model$w = t((t((alphas * Y)) %*% X))          
-model = list(X = X[idx, ], y = Y[idx], kernelFunction = kernelFunction, b = b, alphas = alphas[idx], w = t((t((alphas * Y)) %*% X)) )
+model = list(X = X[idx, ], y = Y[idx], kernelFunction = kfun, b = as.numeric(b), alphas = alphas[idx], w = t((t((alphas * Y)) %*% X)) )
 
 
 }
