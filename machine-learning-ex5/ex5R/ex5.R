@@ -212,7 +212,9 @@ readline(prompt='\n Part 6, Program paused. Press enter to continue.\n')
 #  lambda to see how the fit and learning curve change.
 #
 
-lambda = 0
+source("plotFit.R")
+
+lambda = 3
 theta = trainLinearReg(X_poly1, y, lambda)
 
 theta <- theta$par
@@ -220,19 +222,12 @@ theta <- theta$par
 # Plot training data and fit
 #figure(1);
 #plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-#plotFit(min(X), max(X), mu, sigma, theta, p)
+xrange <- c(-60, 70)
+yrange <- c(-150, 500)
+plot(X,y,xlim = xrange, ylim = yrange, xlab="Change in water level (X)",ylab="water flowing out of dam (y)", pch=4, col="red")
+plotFit(min(X), max(X), mu, sigma, theta, p)
 
-xlabel='Change in water level (x)'
-ylabel='Water flowing out of the dam (y)'
-title = sprintf('Polynomial Regression Fit (lambda = %f)', lambda)
-
-plot(X, y, pch = 4, col="red", lwd=1.5 , xlab=xlabel, ylab= ylabel, main=title)
-
-Xs <- matrix(sort(X))                   # plot lines need decreasing X
-Xps1 <- X_poly1[order(X_poly1[,2]), ]   # poly X with sorted X1 (not X0)
-yps <- Xps1 %*% theta                   # predict y
-
-lines(Xs, yps, col='blue', type='b') 
+readline(prompt="program pause, press enter to continue\n")
 
 
 #figure(2);
