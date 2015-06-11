@@ -192,18 +192,22 @@ num_features = 10
 init_X = matrix(rnorm(num_movies * num_features), num_movies, num_features)
 init_Theta = matrix(rnorm(num_users * num_features) , num_users, num_features)
 
-initial_parameters = as.vector(c(as.vector(X), as.vector(Theta)))
+initial_parameters = as.vector(c(as.vector(init_X), as.vector(init_Theta)))
 
 # Set options for fmincg
 #options = optimset('GradObj', 'on', 'MaxIter', 100)
 
 # Set Regularization
-lambda = 10;
-source("gradientDescent.R")
+lambda = 10
+#source("gradientDescent.R")
 #theta = fmincg (@(t)(cofiCostFunc(t, Y, R, num_users, num_movies,num_features, lambda)),initial_parameters, options)
 alpha <- 0.001
-num_iters <- 200
-theta <- gradientDescent(Y, R, init_X, init_Theta, alpha, num_iters)
+num_iters <- 100
+#theta <- gradientDescent(Y, R, init_X, init_Theta, alpha, num_iters)
+
+source("fmincg.R")
+theta = fmincg (cofiCostFunc, initial_parameters, Maxiter = num_iters, Y, R, num_users, num_movies,num_features, lambda)
+theta <- theta$par
 
 # Unfold the returned theta back into U and W
 X = matrix(theta[1:(num_movies*num_features)], num_movies, num_features)

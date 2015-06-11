@@ -1,4 +1,4 @@
-linearRegCostFunction <- function (X, y, theta, lambda) {
+linearRegCostFunction <- function (theta, X, y, lambda) {
 #LINEARREGCOSTFUNCTION Compute cost and gradient for regularized linear 
 #regression with multiple variables
 #   [J, grad] = LINEARREGCOSTFUNCTION(X, y, theta, lambda) computes the 

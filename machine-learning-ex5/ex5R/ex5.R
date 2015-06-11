@@ -63,7 +63,7 @@ Xval1 <- cbind(rep(1, nrow(Xval)), Xval)
 
 theta <- rep(1,ncol(X1))
 
-JandG = linearRegCostFunction(X1, y, theta, 1)
+JandG = linearRegCostFunction(theta, X1, y, 1)
 J <- JandG$J
 
 message(sprintf('Cost at theta = [1 ; 1]: %f ', J))
@@ -82,7 +82,7 @@ source("linearRegCostFunction.R")
 #X <- cbind(rep(1,nrow(X)),X)
 #theta <- rep(1,ncol(X))
 
-JandG = linearRegCostFunction(X1, y, theta, 1)
+JandG = linearRegCostFunction(theta, X1, y, 1)
 grad<- JandG$grad
 
 message(sprintf('Gradient at theta = [1 ; 1]:  [%f; %f] ', grad[1], grad[2]))
@@ -214,7 +214,7 @@ readline(prompt='\n Part 6, Program paused. Press enter to continue.\n')
 
 source("plotFit.R")
 
-lambda = 3
+lambda = 0
 theta = trainLinearReg(X_poly1, y, lambda)
 
 theta <- theta$par
@@ -222,7 +222,7 @@ theta <- theta$par
 # Plot training data and fit
 #figure(1);
 #plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-xrange <- c(-60, 70)
+xrange <- c(-100, 100)
 yrange <- c(-150, 500)
 plot(X,y,xlim = xrange, ylim = yrange, xlab="Change in water level (X)",ylab="water flowing out of dam (y)", pch=4, col="red")
 plotFit(min(X), max(X), mu, sigma, theta, p)

@@ -7,6 +7,7 @@ trainLinearReg <- function(X, y, lambda) {
 #
 library(matlab)
 source("linearRegCostFunction.R")
+source("fmincg.R")
     
 # Initialize Theta
 #initial_theta = zeros(size(X, 2), 1); 
@@ -23,8 +24,9 @@ initial_theta <- rep(0,size(X, 2))
 
 # Derive theta using gradient descent using optim function
 
-theta_optim <- optim(par=initial_theta,fn=cost, gr = gradient, X=X, y=y,lambda=lambda, method=c("L-BFGS-B"))
+#theta_optim <- optim(par=initial_theta,fn=cost, gr = gradient, X=X, y=y,lambda=lambda, method=c("L-BFGS-B"))
 
+theta_optim <- fmincg(linearRegCostFunction, initial_theta, Maxiter = 200, X, y, lambda)
 #
 return(theta_optim)
 

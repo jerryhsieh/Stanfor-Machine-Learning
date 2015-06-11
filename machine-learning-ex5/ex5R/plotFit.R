@@ -10,8 +10,8 @@ plotFit <- function (min_x, max_x, mu, sigma, theta, p) {
 # We plot a range slightly bigger than the min and max values to get
 # an idea of how the fit will vary outside the range of the data points
 #x = t(min_x - 15: 0.05 : max_x + 25)
-x = seq(min_x -15, max_x+25, by=0.05)
-
+#x = seq(min_x -15, max_x+25, by=0.05)
+x = seq(-100, 100, by=0.05)
 # Map the X values 
 X_poly = polyFeatures(x, p)
 #X_poly = bsxfun(@minus, X_poly, mu);
