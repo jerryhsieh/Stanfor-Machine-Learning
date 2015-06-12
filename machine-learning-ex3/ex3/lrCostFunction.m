@@ -36,7 +36,6 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
-
 theta2 = theta(2:end);
 
 H = sigmoid(X * theta);

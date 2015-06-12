@@ -23,7 +23,11 @@ display_cols = ceil(m / display_rows);
 % Between images padding
 pad = 1;
 
+fprintf("X row = %d, col = %d \n", m, n)
 
+if n == 1,
+  keyboard;
+end
 
 % Setup blank display
 display_array = - ones(pad + display_rows * (example_height + pad), ...
@@ -45,6 +49,8 @@ for j = 1:display_rows
 						flipud(reshape(X(curr_ex, :), example_height, example_width)) / max_val;
 		curr_ex = curr_ex + 1;
 	end
+  if max_val == 0
+    fprintf(X(curr_ex,:))
 	if curr_ex > m, 
 		break; 
 	end
