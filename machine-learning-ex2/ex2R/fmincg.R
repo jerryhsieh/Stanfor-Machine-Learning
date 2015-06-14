@@ -148,7 +148,7 @@ fmincg = function(f,X, Maxiter=10, ...) {
         
         if (success) {
             f1 = f2; fX = rbind(fX, f1)
-            cat(sprintf('\t Iteration %4i | Cost: %4.6e \r',i,f1))
+            cat(sprintf('\r Iteration %4i | Cost: %4.6e ',i,f1))
             temp = (t(df2)%*%df2-t(df1)%*%df2)/(t(df1)%*%df1)
             s = temp[1]*s - df2
             tmp = df1; df1 = df2; df2 = tmp;

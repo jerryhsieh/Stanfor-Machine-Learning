@@ -190,7 +190,7 @@ H = 0
 #end
 
     }
-message(sprintf(' Done! \n\n'))
+cat(' Done! \n')
 
 # Save the model
 idx = alphas > 0

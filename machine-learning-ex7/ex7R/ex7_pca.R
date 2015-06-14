@@ -273,7 +273,8 @@ sel = floor(runif(1000) * nrow(X)) + 1
 library(scatterplot3d)
 scatterplot3d(X[sel, 1], X[sel, 2], X[sel, 3], pch=16, color=rainbow(length(unique(idx[sel])))[idx[sel]])
 title('Pixel dataset plotted in 3D. Color shows centroid memberships');
-message(sprintf('Program paused. Press enter to continue.\n'))
+
+readline(prompt='Program paused. Press enter to continue.\n')
 
             
 ## === Part 8(b): Optional (ungraded) Exercise: PCA for Visualization ===

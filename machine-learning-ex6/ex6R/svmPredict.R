@@ -23,7 +23,7 @@ m = NROW(X)
 p = rep(0, m)
 pred = rep(0, m)
 
-message(sprintf("svmPredict got m = %d", m))
+#message(sprintf("svmPredict got m = %d", m))
 #kfun <- deparse(substitute(model$kernelFunction))
 
 kfun <- model$kernelFunction
@@ -31,13 +31,13 @@ kfun <- model$kernelFunction
 if (strcmp(kfun, 'linearKernel')) {
 # We can use the weights and bias directly if working with the 
 # linear kernel
-    message("using linearKernel")
+#    message("using linearKernel")
     p = X %*% model$w + model$b
 }
 else if (length(grep('gaussianKernel', kfun)) > 0) {
 # Vectorized RBF Kernel
 # This is equivalent to computing the kernel on every pair of examples
-    message("using gaussianKernel")
+#    message("using gaussianKernel")
     X1 = matrix(rowSums(X^2), m, 1)
     X2 = matrix(rowSums(model$X^2), 1)
     K <- sweep(sweep(- 2 * (X %*% t(model$X)), 2, X2, FUN="+", check.margin=FALSE), 1, X1, FUN="+",check.margin=FALSE)
@@ -50,7 +50,7 @@ else if (length(grep('gaussianKernel', kfun)) > 0) {
     p = matrix(rowSums(K), m, 1)
 }
 else {
-    message("using other non linear kernel")
+#    message("using other non linear kernel")
     # Other Non-linear kernel
     for (i in 1:m) {
         prediction = 0;
