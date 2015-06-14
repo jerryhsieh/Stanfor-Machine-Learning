@@ -91,6 +91,7 @@ fprintf('Cost at theta found by fminunc: %f\n', cost);
 fprintf('theta: \n');
 fprintf(' %f \n', theta);
 
+
 % Plot Boundary
 plotDecisionBoundary(theta, X, y);
 
